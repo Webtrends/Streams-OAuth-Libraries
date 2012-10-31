@@ -6,7 +6,7 @@ class TokenRequest
 {
 	public $audience = "auth.webtrends.com";
 	public $scope = "sapi.webtrends.com";
-	public $authUrl = "sauth.webtrends.com/v1/token";
+	public $authUrl = "https://sauth.webtrends.com/v1/token";
 	public $expiration;
 	
 	private $clientId;
