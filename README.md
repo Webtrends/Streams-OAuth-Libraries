@@ -1,0 +1,26 @@
+Streams OAuth Libraries
+-----------------------
+
+Libraries used for authenticating to [Webtrends Streams](http://webtrends.com/streams/).
+
+
+### Java
+
+[Example](https://github.com/Webtrends/Streams-OAuth-Libraries/blob/master/java/TokenRequest/src/main/java/com/webtrends/client/authentication/Example.java)
+
+
+### PHP
+
+[Example](https://github.com/Webtrends/Streams-OAuth-Libraries/blob/master/php5/example.php)
+Note: Requires php5-curl library
+
+
+### Python
+
+[Example](https://github.com/Webtrends/Streams-OAuth-Libraries/blob/master/python/example.py)
+
+
+### Ruby
+
+[Example](https://github.com/Webtrends/Streams-OAuth-Libraries/blob/master/ruby/example.rb)
+Note: Requires Json and HTTParty rubygems
