@@ -12,7 +12,7 @@ Libraries used for authenticating to [Webtrends Streams](http://webtrends.com/st
 ### PHP
 
 [Example](https://github.com/Webtrends/Streams-OAuth-Libraries/blob/master/php5/example.php)
-Note: Requires php5-curl library
+(Note: Requires php5-curl library)
 
 
 ### Python
@@ -23,4 +23,4 @@ Note: Requires php5-curl library
 ### Ruby
 
 [Example](https://github.com/Webtrends/Streams-OAuth-Libraries/blob/master/ruby/example.rb)
-Note: Requires Json and HTTParty rubygems
+(Note: Requires Json and HTTParty rubygems)
