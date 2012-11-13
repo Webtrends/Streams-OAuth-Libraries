@@ -28,4 +28,4 @@ Libraries used for authenticating to [Webtrends Streams](http://webtrends.com/st
 
 Legal
 -----------------------
-Use of Webtrends Streams is documented here: http://webtrends.com/terms-of-subscription-service/
+Use of Webtrends Streams and these libraries can be found here: https://github.com/Webtrends/Streams-OAuth-Libraries/blob/master/TERMS.md
