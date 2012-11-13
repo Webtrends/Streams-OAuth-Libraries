@@ -24,3 +24,8 @@ Libraries used for authenticating to [Webtrends Streams](http://webtrends.com/st
 
 [Example](https://github.com/Webtrends/Streams-OAuth-Libraries/blob/master/ruby/example.rb)
 (Note: Requires Json and HTTParty rubygems)
+
+
+Legal
+-----------------------
+Use of Webtrends Streams is documented here: http://webtrends.com/terms-of-subscription-service/
