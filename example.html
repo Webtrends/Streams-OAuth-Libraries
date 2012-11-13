@@ -1,0 +1,121 @@
+<html>
+<!--
+This is an example Webtrends Streams visualization 
+that returns the full JSON output of the Content stream.
+
+Replace the text below: "YOURDOMAIN/YOURTOKENAPP"
+with the location/file where you're running one of the OAuth
+token generating libraries and this visualization will 
+return your Webtrends Streams Content stream.
+-->
+<head>
+	<title>Webtrends Streams Example App</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<style>body{margin-top:15px; font-family:"arial"}</style>
+</head>
+<body>
+	<h3>Webtrends Streams Example App</h3>
+	<button name="Close" onclick="openSocket()">Open Stream</button>
+	<button name="Close" onclick="closeSocket()">Close Stream</button>
+	<br/>
+	<span id="secureSocket" style="font-size:smaller;">Use secure WebSocket (wss://)</span>
+	<input type="checkbox" id="secureCb" onclick="secureMode()">
+	<h4>Content Stream Output (events streamed: <span id="eventCount">0</span>)</h4>
+	<textarea id="responseText" style="width: 800px; height:600px;"></textarea>
+
+<script type="text/javascript">
+    var socket = null;
+	var socketUrl = "ws://sapi.webtrends.com/streaming";
+	var eventCount = 0;
+	
+    if (!window.WebSocket) { window.WebSocket = window.MozWebSocket; }
+    if (!window.WebSocket) { alert("Your browser does not support Web Socket."); }
+
+	function gen_token() {
+		$.getJSON("http://YOURDOMAIN/YOURTOKENAPP?jsoncallback=?", function (data) {
+			if ("token" in data) {
+				token = data["token"];
+				console.log("token: " + token);
+				initializeSocket();  // add the next step - in this case - initializeSocket
+			} else {
+				if ("error" in data) {
+					alert("error: " + data["error"]);
+				}
+			}
+		});
+	}
+
+    function initializeSocket() {
+		if (window.WebSocket) {
+			socket = new WebSocket(socketUrl);
+			socket.onmessage = function(event) {
+				writeLine(event.data);
+				eventCount++;
+				 $('#eventCount').html(function(i, val) { 
+					 return addCommas(eventCount)
+				 });
+			};
+			socket.onopen = function(event) {
+				createStream();
+			};
+			socket.onclose = function(event) {
+				socket = null;
+			};
+			socket.onerror = function(event) {
+				writeLine("Error: ");
+			};
+		} else {
+			alert("Your browser does not support Web Socket.");
+		}
+    }
+
+    function createStream() {
+        console.log("Opening stream for the token: " + token);
+        socket.send('{"access_token":"' + token + '","command":"stream","api_version":"2.0","schema_version":"2.0","stream_type":"content","query":""}');
+    }
+    
+    function send(message) {
+        if (!window.WebSocket) { return; }
+        if (socket.readyState == WebSocket.OPEN) {
+          socket.send(message);
+        } else {
+          alert("The socket is not open.");
+        }
+    }
+
+    function openSocket() {
+        if (!window.WebSocket) { return; }
+        if (socket == null) {
+            document.getElementById('responseText').value = '';
+			gen_token();  // add gen_token(); to first get the token
+        }
+    }
+
+    function closeSocket() {
+        if (!window.WebSocket) { return; }
+        if (socket.readyState == WebSocket.OPEN) {            
+            socket.close();
+            socket = null;
+        }
+    }
+
+    function writeLine(message) {
+    	message = JSON.stringify(JSON.parse(message),null,'\t')
+        var ta = document.getElementById('responseText');
+        ta.value = message;
+    }
+
+    function secureMode() {
+		if (secureCb.checked) {
+			socketUrl = "wss://sapi.webtrends.com/streaming";
+		} else {
+			socketUrl = "ws://sapi.webtrends.com/streaming";
+		}
+    }
+
+	function addCommas(x) { 
+		return x.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ","); 
+	}
+</script>
+</body>
+</html>
