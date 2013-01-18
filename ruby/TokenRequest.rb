@@ -34,6 +34,8 @@ module Webtrends
           raise "Bad request" unless !result['access_token'].nil?
           result['access_token']
         end
+
+        private
                 
         def jwt_assertion
           payload = "#{jwt_header}.#{jwt_claims}"
