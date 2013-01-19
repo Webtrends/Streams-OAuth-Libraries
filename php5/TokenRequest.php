@@ -30,6 +30,7 @@ class TokenRequest
 		curl_setopt($ch, CURLOPT_URL, $this->authUrl);
 		curl_setopt($ch, CURLOPT_POST, count($fields));
 		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($fields));
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		$raw_result = curl_exec($ch);
 		$info = curl_getinfo($ch);
