@@ -1,7 +1,7 @@
 Streams OAuth Libraries
 -----------------------
 
-Libraries used for authenticating to [Webtrends Streams](http://webtrends.com/streams/).
+Libraries used for authenticating to [Webtrends Streams](http://webtrends.com/solutions/digital-measurement/streams).
 
 
 ### Java
