@@ -84,7 +84,7 @@ public class TokenRequest {
         return new String(Base64.encodeBase64(input));
     }
     
-    public String getHMAC256(final String input, final String secret) {
+    private String getHMAC256(final String input, final String secret) {
         String temp = null;
         final SecretKeySpec keySpec = new SecretKeySpec(secret.getBytes(), "HmacSHA256");
         try {
