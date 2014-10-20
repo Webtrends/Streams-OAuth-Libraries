@@ -1,0 +1,20 @@
+{
+    "name" : "webtrends-auth",
+    "main" : "index.js",
+    "version": "1.0.0",
+    "description": "Retrieve authentication token for Webtrends Streams APIs",
+    "author": "Wouter Dullaert <wouter.dullaert@toyota-europe.com>",
+    "maintainers": [
+        "Wouter Dullaert <wouter.dullaert@toyota-europe.com>"
+    ],
+    "keywords": [
+        "webtrends",
+        "oauth",
+        "authentication",
+        "jwt"
+    ],
+    "private": true,
+    "dependencies": {
+        "request" : ">=2.40.0"
+    }
+}
