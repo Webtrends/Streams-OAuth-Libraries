@@ -25,6 +25,9 @@ Libraries used for authenticating to [Webtrends Streams](http://webtrends.com/so
 [Example](https://github.com/Webtrends/Streams-OAuth-Libraries/blob/master/ruby/example.rb)
 (Note: Requires Json and HTTParty rubygems)
 
+### C-sharp
+[Example](https://github.com/Webtrends/Streams-OAuth-Libraries/blob/master/csharp/Example.cs)
+(Note: Requires Newtonsoft.json and RestSharp nuget packages)
 
 Legal
 -----------------------
