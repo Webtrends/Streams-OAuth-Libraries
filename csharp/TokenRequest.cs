@@ -39,7 +39,7 @@ public class TokenRequest
             Issuer = clientId,
             Principal = clientId,
             Audience = audience,
-            Expiration = DateTime.Now.AddSeconds(30),
+            Expiration = DateTime.Now.ToUniversalTime().AddSeconds(30),
             Scope = scope
         };
 
